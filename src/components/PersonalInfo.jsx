@@ -1,20 +1,39 @@
 import React, { useState } from "react";
+import { Button } from "./Button";
 
 export const PersonalInfo = () => {
 	const [personalInfo, setpersonalInfo] = useState({
-		name: "",
-		number: "",
-		email: "",
+		name: "Shahid",
+		number: "555 555 555",
+		email: "example@gmail.com",
+	});
+	const [isSave, setIsSave] = useState({
+		save: false,
+		disabled: false,
 	});
 
 	const handleNameChange = (e) => {
-		setpersonalInfo({ ...personalInfo, name: e.target.value });
+		if (!isSave.save) {
+			setpersonalInfo({ ...personalInfo, name: e.target.value });
+		}
 	};
 	const handleNumberChange = (e) => {
-		setpersonalInfo({ ...personalInfo, number: e.target.value });
+		if (!isSave.save) {
+			setpersonalInfo({ ...personalInfo, number: e.target.value });
+		}
 	};
 	const handleEmailChange = (e) => {
-		setpersonalInfo({ ...personalInfo, email: e.target.value });
+		if (!isSave.save) {
+			setpersonalInfo({ ...personalInfo, email: e.target.value });
+		}
+	};
+
+	const handleIsSave = () => {
+		setIsSave({ ...isSave, save: true, disabled: true });
+	};
+
+	const handleEdit = () => {
+		setIsSave({ ...isSave, save: false, disabled: false });
 	};
 	return (
 		<section
@@ -25,6 +44,7 @@ export const PersonalInfo = () => {
 				<label>
 					Name:{" "}
 					<input
+						disabled={isSave.disabled}
 						type="text"
 						className="border border-red-400"
 						onChange={handleNameChange}
@@ -33,6 +53,7 @@ export const PersonalInfo = () => {
 				<label>
 					Number:{" "}
 					<input
+						disabled={isSave.disabled}
 						type="number"
 						className="border border-red-400"
 						onChange={handleNumberChange}
@@ -41,6 +62,7 @@ export const PersonalInfo = () => {
 				<label>
 					Email:{" "}
 					<input
+						disabled={isSave.disabled}
 						type="email"
 						className="border border-red-400"
 						onChange={handleEmailChange}
@@ -51,6 +73,18 @@ export const PersonalInfo = () => {
 				<h1>{personalInfo.name}</h1>
 				<p>{personalInfo.number}</p>
 				<p>{personalInfo.email}</p>
+				<div>
+					<Button
+						classes=" border-pink-600 "
+						onClick={handleIsSave}
+						text="Savee"
+					/>
+					<Button
+						classes=" border-green-600 "
+						onClick={handleEdit}
+						text="Edit"
+					/>
+				</div>
 			</div>
 		</section>
 	);

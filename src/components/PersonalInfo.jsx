@@ -7,6 +7,7 @@ export const PersonalInfo = () => {
 		number: "555 555 555",
 		email: "example@gmail.com",
 	});
+
 	const [isSave, setIsSave] = useState({
 		save: false,
 		disabled: false,

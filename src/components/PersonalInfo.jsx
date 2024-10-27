@@ -3,38 +3,33 @@ import { Button } from "./Button";
 
 export const PersonalInfo = () => {
 	const [personalInfo, setpersonalInfo] = useState({
+		name: "",
+		number: "",
+		email: "",
+	});
+
+	const [displayInfo, setDisplayInfo] = useState({
 		name: "Shahid",
-		number: "555 555 555",
-		email: "example@gmail.com",
+		number: "09292992",
+		email: "jshshkhskkj",
 	});
 
-	const [isSave, setIsSave] = useState({
-		save: false,
-		disabled: false,
-	});
+	const [isSave, setIsSave] = useState(true);
 
-	const handleNameChange = (e) => {
-		if (!isSave.save) {
-			setpersonalInfo({ ...personalInfo, name: e.target.value });
-		}
-	};
-	const handleNumberChange = (e) => {
-		if (!isSave.save) {
-			setpersonalInfo({ ...personalInfo, number: e.target.value });
-		}
-	};
-	const handleEmailChange = (e) => {
-		if (!isSave.save) {
-			setpersonalInfo({ ...personalInfo, email: e.target.value });
-		}
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setpersonalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
 	};
 
 	const handleIsSave = () => {
-		setIsSave({ ...isSave, save: true, disabled: true });
+		setDisplayInfo(personalInfo);
+		setpersonalInfo({ name: "", number: "", email: "" });
+		setIsSave(false);
 	};
 
 	const handleEdit = () => {
-		setIsSave({ ...isSave, save: false, disabled: false });
+		setpersonalInfo(displayInfo);
+		setIsSave(true);
 	};
 	return (
 		<section
@@ -45,46 +40,55 @@ export const PersonalInfo = () => {
 				<label>
 					Name:{" "}
 					<input
-						disabled={isSave.disabled}
+						name="name"
+						disabled={!isSave}
+						value={personalInfo.name}
 						type="text"
 						className="border border-red-400"
-						onChange={handleNameChange}
+						onChange={handleChange}
 					/>
 				</label>
 				<label>
 					Number:{" "}
 					<input
-						disabled={isSave.disabled}
+						name="number"
+						disabled={!isSave}
+						value={personalInfo.number}
 						type="number"
 						className="border border-red-400"
-						onChange={handleNumberChange}
+						onChange={handleChange}
 					/>
 				</label>
 				<label>
 					Email:{" "}
 					<input
-						disabled={isSave.disabled}
+						name="email"
+						disabled={!isSave}
+						value={personalInfo.email}
 						type="email"
 						className="border border-red-400"
-						onChange={handleEmailChange}
+						onChange={handleChange}
 					/>
 				</label>
 			</div>
 			<div className="md:col-span-3 md:text-center">
-				<h1>{personalInfo.name}</h1>
-				<p>{personalInfo.number}</p>
-				<p>{personalInfo.email}</p>
+				<h1>{displayInfo.name}</h1>
+				<p>{displayInfo.number}</p>
+				<p>{displayInfo.email}</p>
 				<div>
+					{(isSave ?
 					<Button
 						classes=" border-pink-600 "
 						onClick={handleIsSave}
 						text="Savee"
 					/>
+					:
 					<Button
 						classes=" border-green-600 "
 						onClick={handleEdit}
 						text="Edit"
 					/>
+					)}
 				</div>
 			</div>
 		</section>

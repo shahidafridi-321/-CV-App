@@ -15,14 +15,13 @@ export const EducationalInfo = () => {
 		endDate: "01/11/2025",
 	});
 
-
+	const [isSave, setIsSave] = useState(false);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setEducationalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
 	};
 
-	
 	return (
 		<section
 			id="education-info"

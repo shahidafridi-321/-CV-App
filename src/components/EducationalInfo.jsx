@@ -33,6 +33,11 @@ export const EducationalInfo = () => {
 		setIsSave(false);
 	};
 
+	const handleEdit = () => {
+		educationalInfo(displayEduInfo);
+		setIsSave(true);
+	};
+
 	return (
 		<section
 			id="education-info"

@@ -51,7 +51,8 @@ export const EducationalInfo = () => {
 		>
 			<div
 				className={
-					displayForm +" md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
+					displayForm +
+					" md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
 				}
 			>
 				<Input
@@ -125,7 +126,13 @@ export const EducationalInfo = () => {
 				</div>
 			</div>
 			<div>
-				<button className="absolute bottom-2 right-4">Add feild</button>
+				<Button
+					text="Add Education"
+					classes="absolute bottom-2 right-4 border-red-900"
+					onClick={() => {
+						console.log("Works");
+					}}
+				/>
 			</div>
 		</section>
 	);

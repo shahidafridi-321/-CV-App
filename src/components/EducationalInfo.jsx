@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const EducationalInfo = () => {
+	const [educationalInfo, setEducationalInfo] = useState({
+		school: "",
+		degree: "",
+		startDate: "",
+		endDate: "",
+	});
+
+	const [displayEduInfo, setDisplayEduInfo] = useState({
+		school: "islamia",
+		degree: "BS",
+		startDate: "01/11/2021",
+		endDate: "01/11/2025",
+	});
 	return (
 		<section
 			id="education-info"
@@ -46,7 +59,24 @@ export const EducationalInfo = () => {
 					</label>
 				</div>
 			</div>
-			<div></div>
+			<div className="md:col-span-3 md:text-center">
+				<p>{displayEduInfo.school}</p>
+				<p>{displayEduInfo.degree}</p>
+				<div className="flex flex-col md:flex-row space-x-2 justify-center">
+					<div className="flex space-x-1">
+						<span>Start Date </span>
+						<time dateTime={displayEduInfo.startDate}>
+							{displayEduInfo.startDate}
+						</time>
+					</div>
+					<div className="flex space-x-1">
+						<span> End Date </span>
+						<time dateTime={displayEduInfo.endDate}>
+							{displayEduInfo.endDate}
+						</time>
+					</div>
+				</div>
+			</div>
 		</section>
 	);
 };

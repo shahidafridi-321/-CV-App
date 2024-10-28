@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "./Button";
 
 export const EducationalInfo = () => {
 	const [educationalInfo, setEducationalInfo] = useState({
@@ -34,7 +35,7 @@ export const EducationalInfo = () => {
 	};
 
 	const handleEdit = () => {
-		educationalInfo(displayEduInfo);
+		setEducationalInfo(displayEduInfo);
 		setIsSave(true);
 	};
 
@@ -48,8 +49,10 @@ export const EducationalInfo = () => {
 					Institute Name :{" "}
 					<input
 						type="text"
-						name="institute"
-						id=""
+						name="school"
+						onChange={handleChange}
+						value={educationalInfo.school}
+						disabled={!isSave}
 						placeholder="University/College/School"
 						className="border border-red-400"
 					/>
@@ -59,7 +62,9 @@ export const EducationalInfo = () => {
 					<input
 						type="text"
 						name="degree"
-						id=""
+						onChange={handleChange}
+						value={educationalInfo.degree}
+						disabled={!isSave}
 						placeholder="PhD/MS/BS"
 						className="border border-red-400"
 					/>
@@ -69,15 +74,19 @@ export const EducationalInfo = () => {
 						Study Date : From{" "}
 						<input
 							type="date"
-							name="from"
-							id=""
+							name="startDate"
+							onChange={handleChange}
+							disabled={!isSave}
+							value={educationalInfo.startDate}
 							className="border border-red-400"
 						/>{" "}
 						To{" "}
 						<input
 							type="date"
-							name=""
-							id=""
+							name="endDate"
+							onChange={handleChange}
+							value={educationalInfo.endDate}
+							disabled={!isSave}
 							className="border border-red-400"
 						/>
 					</label>
@@ -100,7 +109,21 @@ export const EducationalInfo = () => {
 						</time>
 					</div>
 				</div>
-				<div></div>
+				<div>
+					{isSave ? (
+						<Button
+							classes=" border-pink-600 "
+							onClick={handleSave}
+							text="Save"
+						/>
+					) : (
+						<Button
+							classes=" border-green-600 "
+							onClick={handleEdit}
+							text="Edit"
+						/>
+					)}
+				</div>
 			</div>
 		</section>
 	);

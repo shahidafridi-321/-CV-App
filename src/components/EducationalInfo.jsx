@@ -22,6 +22,17 @@ export const EducationalInfo = () => {
 		setEducationalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
 	};
 
+	const handleSave = () => {
+		setDisplayEduInfo(educationalInfo);
+		setEducationalInfo({
+			school: "",
+			degree: "",
+			startDate: "",
+			endDate: "",
+		});
+		setIsSave(false);
+	};
+
 	return (
 		<section
 			id="education-info"

@@ -48,7 +48,7 @@ export const EducationalInfo = () => {
 	return (
 		<section
 			id="education-info"
-			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4 relative"
+			className="flex flex-col-reverse md:grid md:grid-cols-4 py-4 gap-0 relative"
 		>
 			<Form displayForm={displayForm}>
 				<>
@@ -78,6 +78,7 @@ export const EducationalInfo = () => {
 							onChange={handleChange}
 							value={educationalInfo.startDate}
 							disabled={!isSave}
+							className="px-11"
 						/>
 						<Input
 							label="End Date"
@@ -86,6 +87,7 @@ export const EducationalInfo = () => {
 							onChange={handleChange}
 							value={educationalInfo.endDate}
 							disabled={!isSave}
+							className="px-11"
 						/>
 					</div>
 				</>

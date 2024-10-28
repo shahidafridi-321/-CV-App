@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { Input } from "./Input";
 
 export const PersonalInfo = () => {
 	const [personalInfo, setpersonalInfo] = useState({
@@ -37,39 +38,30 @@ export const PersonalInfo = () => {
 			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
 		>
 			<div className="flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2">
-				<label>
-					Name:{" "}
-					<input
-						name="name"
-						disabled={!isSave}
-						value={personalInfo.name}
-						type="text"
-						className="border border-red-400"
-						onChange={handleChange}
-					/>
-				</label>
-				<label>
-					Number:{" "}
-					<input
-						name="number"
-						disabled={!isSave}
-						value={personalInfo.number}
-						type="number"
-						className="border border-red-400"
-						onChange={handleChange}
-					/>
-				</label>
-				<label>
-					Email:{" "}
-					<input
-						name="email"
-						disabled={!isSave}
-						value={personalInfo.email}
-						type="email"
-						className="border border-red-400"
-						onChange={handleChange}
-					/>
-				</label>
+				<Input
+					label="Name"
+					name="name"
+					disabled={!isSave}
+					value={personalInfo.name}
+					type="text"
+					onChange={handleChange}
+				/>
+				<Input
+					label="Phone"
+					name="number"
+					disabled={!isSave}
+					value={personalInfo.number}
+					type="number"
+					onChange={handleChange}
+				/>
+				<Input
+					label="Email"
+					name="email"
+					disabled={!isSave}
+					value={personalInfo.email}
+					type="email"
+					onChange={handleChange}
+				/>
 			</div>
 			<div className="md:col-span-3 md:text-center">
 				<h1>{displayInfo.name}</h1>

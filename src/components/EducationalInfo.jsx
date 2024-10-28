@@ -14,6 +14,15 @@ export const EducationalInfo = () => {
 		startDate: "01/11/2021",
 		endDate: "01/11/2025",
 	});
+
+
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setEducationalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
+	};
+
+	
 	return (
 		<section
 			id="education-info"
@@ -76,6 +85,7 @@ export const EducationalInfo = () => {
 						</time>
 					</div>
 				</div>
+				<div></div>
 			</div>
 		</section>
 	);

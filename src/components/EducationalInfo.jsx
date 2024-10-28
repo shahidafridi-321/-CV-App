@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Form } from "./Form";
+import { EducationalInfoCard } from "./EducationalInfoCard";
 
 export const EducationalInfo = () => {
 	const [educationalInfo, setEducationalInfo] = useState({
@@ -90,39 +91,12 @@ export const EducationalInfo = () => {
 					</div>
 				</>
 			</Form>
-			<div className="md:col-span-3 md:text-center">
-				<p>{displayEduInfo.school}</p>
-				<p>{displayEduInfo.degree}</p>
-				<div className="flex flex-col md:flex-row space-x-2 justify-center">
-					<div className="flex space-x-1">
-						<span>Start Date </span>
-						<time dateTime={displayEduInfo.startDate}>
-							{displayEduInfo.startDate}
-						</time>
-					</div>
-					<div className="flex space-x-1">
-						<span> End Date </span>
-						<time dateTime={displayEduInfo.endDate}>
-							{displayEduInfo.endDate}
-						</time>
-					</div>
-				</div>
-				<div>
-					{isSave ? (
-						<Button
-							classes=" border-pink-600 "
-							onClick={handleSave}
-							text="Save"
-						/>
-					) : (
-						<Button
-							classes=" border-green-600 "
-							onClick={handleEdit}
-							text="Edit"
-						/>
-					)}
-				</div>
-			</div>
+			<EducationalInfoCard
+				displayEduInfo={displayEduInfo}
+				isSave={isSave}
+				handleEdit={handleEdit}
+				handleSave={handleSave}
+			/>
 		</section>
 	);
 };

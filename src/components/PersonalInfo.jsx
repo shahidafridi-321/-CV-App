@@ -43,8 +43,7 @@ export const PersonalInfo = () => {
 			<div
 				className={
 					displayForm +
-					" " +
-					"md:flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2"
+					" md:flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2"
 				}
 			>
 				<Input

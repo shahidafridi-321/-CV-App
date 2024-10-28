@@ -47,13 +47,11 @@ export const EducationalInfo = () => {
 	return (
 		<section
 			id="education-info"
-			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
+			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4 relative"
 		>
 			<div
 				className={
-					displayForm +
-					" " +
-					"md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
+					displayForm +" md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
 				}
 			>
 				<Input
@@ -125,6 +123,9 @@ export const EducationalInfo = () => {
 						/>
 					)}
 				</div>
+			</div>
+			<div>
+				<button className="absolute bottom-2 right-4">Add feild</button>
 			</div>
 		</section>
 	);

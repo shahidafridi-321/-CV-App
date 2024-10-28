@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "./Button";
 import { Input } from "./Input";
+import { Form } from "./Form";
+import { PersonalInfoCard } from "./PersonalInfoCard";
 
 export const PersonalInfo = () => {
 	const [personalInfo, setpersonalInfo] = useState({
@@ -40,12 +41,7 @@ export const PersonalInfo = () => {
 			id="personal-info"
 			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
 		>
-			<div
-				className={
-					displayForm +
-					" md:flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2"
-				}
-			>
+			<Form displayForm={displayForm}>
 				<Input
 					label="Name"
 					name="name"
@@ -70,27 +66,13 @@ export const PersonalInfo = () => {
 					type="email"
 					onChange={handleChange}
 				/>
-			</div>
-			<div className="md:col-span-3 md:text-center">
-				<h1>{displayInfo.name}</h1>
-				<p>{displayInfo.number}</p>
-				<p>{displayInfo.email}</p>
-				<div>
-					{isSave ? (
-						<Button
-							classes=" border-pink-600 "
-							onClick={handleSave}
-							text="Savee"
-						/>
-					) : (
-						<Button
-							classes=" border-green-600 "
-							onClick={handleEdit}
-							text="Edit"
-						/>
-					)}
-				</div>
-			</div>
+			</Form>
+			<PersonalInfoCard
+				displayInfo={displayInfo}
+				isSave={isSave}
+				handleEdit={handleEdit}
+				handleSave={handleSave}
+			/>
 		</section>
 	);
 };

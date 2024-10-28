@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { Form } from "./Form";
 
 export const EducationalInfo = () => {
 	const [educationalInfo, setEducationalInfo] = useState({
@@ -49,49 +50,46 @@ export const EducationalInfo = () => {
 			id="education-info"
 			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4 relative"
 		>
-			<div
-				className={
-					displayForm +
-					" md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
-				}
-			>
-				<Input
-					label="Institute Name"
-					type="text"
-					name="school"
-					onChange={handleChange}
-					value={educationalInfo.school}
-					disabled={!isSave}
-					placeholder="University/College/School"
-				/>
-				<Input
-					label="Degree Name"
-					type="text"
-					name="degree"
-					onChange={handleChange}
-					value={educationalInfo.degree}
-					disabled={!isSave}
-					placeholder="PhD/MS/BS"
-				/>
-				<div>
+			<Form displayForm={displayForm}>
+				<>
 					<Input
-						label="Start Date"
-						type="date"
-						name="startDate"
+						label="Institute Name"
+						type="text"
+						name="school"
 						onChange={handleChange}
-						value={educationalInfo.startDate}
+						value={educationalInfo.school}
 						disabled={!isSave}
+						placeholder="University/College/School"
 					/>
 					<Input
-						label="End Date"
-						type="date"
-						name="endDate"
+						label="Degree Name"
+						type="text"
+						name="degree"
 						onChange={handleChange}
-						value={educationalInfo.endDate}
+						value={educationalInfo.degree}
 						disabled={!isSave}
+						placeholder="PhD/MS/BS"
 					/>
-				</div>
-			</div>
+					<div>
+						<Input
+							label="Start Date"
+							type="date"
+							name="startDate"
+							onChange={handleChange}
+							value={educationalInfo.startDate}
+							disabled={!isSave}
+						/>
+						<Input
+							label="End Date"
+							type="date"
+							name="endDate"
+							onChange={handleChange}
+							value={educationalInfo.endDate}
+							disabled={!isSave}
+						/>
+					</div>
+				</>
+			</Form>
 			<div className="md:col-span-3 md:text-center">
 				<p>{displayEduInfo.school}</p>
 				<p>{displayEduInfo.degree}</p>
@@ -124,15 +122,6 @@ export const EducationalInfo = () => {
 						/>
 					)}
 				</div>
-			</div>
-			<div>
-				<Button
-					text="Add Education"
-					classes="absolute bottom-2 right-4 border-red-900"
-					onClick={() => {
-						console.log("Works");
-					}}
-				/>
 			</div>
 		</section>
 	);

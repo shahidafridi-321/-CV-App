@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { Input } from "./Input";
 
 export const EducationalInfo = () => {
 	const [educationalInfo, setEducationalInfo] = useState({
@@ -45,51 +46,41 @@ export const EducationalInfo = () => {
 			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
 		>
 			<div className="flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2">
-				<label>
-					Institute Name :{" "}
-					<input
-						type="text"
-						name="school"
-						onChange={handleChange}
-						value={educationalInfo.school}
-						disabled={!isSave}
-						placeholder="University/College/School"
-						className="border border-red-400"
-					/>
-				</label>
-				<label>
-					Degree Name :{" "}
-					<input
-						type="text"
-						name="degree"
-						onChange={handleChange}
-						value={educationalInfo.degree}
-						disabled={!isSave}
-						placeholder="PhD/MS/BS"
-						className="border border-red-400"
-					/>
-				</label>
+				<Input
+					label="Institute Name"
+					type="text"
+					name="school"
+					onChange={handleChange}
+					value={educationalInfo.school}
+					disabled={!isSave}
+					placeholder="University/College/School"
+				/>
+				<Input
+					label="Degree Name"
+					type="text"
+					name="degree"
+					onChange={handleChange}
+					value={educationalInfo.degree}
+					disabled={!isSave}
+					placeholder="PhD/MS/BS"
+				/>
 				<div>
-					<label>
-						Study Date : From{" "}
-						<input
-							type="date"
-							name="startDate"
-							onChange={handleChange}
-							disabled={!isSave}
-							value={educationalInfo.startDate}
-							className="border border-red-400"
-						/>{" "}
-						To{" "}
-						<input
-							type="date"
-							name="endDate"
-							onChange={handleChange}
-							value={educationalInfo.endDate}
-							disabled={!isSave}
-							className="border border-red-400"
-						/>
-					</label>
+					<Input
+						label="Start Date"
+						type="date"
+						name="startDate"
+						onChange={handleChange}
+						value={educationalInfo.startDate}
+						disabled={!isSave}
+					/>
+					<Input
+						label="End Date"
+						type="date"
+						name="endDate"
+						onChange={handleChange}
+						value={educationalInfo.endDate}
+						disabled={!isSave}
+					/>
 				</div>
 			</div>
 			<div className="md:col-span-3 md:text-center">

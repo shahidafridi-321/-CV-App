@@ -14,7 +14,7 @@ export const Input = ({
 	return (
 		<div>
 			<label>
-				{label} :{" "}
+				{label} {" "}
 				<input
 					type={type}
 					name={name}
@@ -23,7 +23,7 @@ export const Input = ({
 					placeholder={placeholder}
 					value={value}
 					disabled={disabled}
-					className={className + "border border-red-400"}
+					className={className + " border  border-green-400 px-3 py-2 rounded-md text-lg outline-none focus:border-blue-400"}
 				/>
 			</label>
 		</div>

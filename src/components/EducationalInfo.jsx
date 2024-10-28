@@ -19,6 +19,8 @@ export const EducationalInfo = () => {
 
 	const [isSave, setIsSave] = useState(false);
 
+	const [displayForm, setDisplayForm] = useState("hidden");
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setEducationalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
@@ -33,11 +35,13 @@ export const EducationalInfo = () => {
 			endDate: "",
 		});
 		setIsSave(false);
+		setDisplayForm("hidden");
 	};
 
 	const handleEdit = () => {
 		setEducationalInfo(displayEduInfo);
 		setIsSave(true);
+		setDisplayForm("flex");
 	};
 
 	return (
@@ -45,7 +49,13 @@ export const EducationalInfo = () => {
 			id="education-info"
 			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
 		>
-			<div className="flex flex-col justify-center align-middle md:mx-auto space-y-2 md:col-span-1 border-r border-black px-2">
+			<div
+				className={
+					displayForm +
+					" " +
+					"md:flex flex-col justify-center align-middle md:mx-auto space-y-2  border-r border-black px-2"
+				}
+			>
 				<Input
 					label="Institute Name"
 					type="text"

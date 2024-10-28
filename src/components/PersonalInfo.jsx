@@ -12,8 +12,8 @@ export const PersonalInfo = () => {
 
 	const [displayInfo, setDisplayInfo] = useState({
 		name: "Shahid",
-		number: "09292992",
-		email: "jshshkhskkj",
+		number: "03201985766",
+		email: "shahidafridi@gmail.com",
 	});
 
 	const [isSave, setIsSave] = useState(false);
@@ -39,9 +39,9 @@ export const PersonalInfo = () => {
 	return (
 		<section
 			id="personal-info"
-			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4"
+			className=" shadow-slate-500  flex flex-col-reverse md:grid md:grid-cols-4  py-4 gap-1"
 		>
-			<Form displayForm={displayForm}>
+			<Form displayForm={displayForm} classes="" title="Personal Information">
 				<Input
 					label="Name"
 					name="name"
@@ -49,6 +49,7 @@ export const PersonalInfo = () => {
 					value={personalInfo.name}
 					type="text"
 					onChange={handleChange}
+					className="border-spacing-16"
 				/>
 				<Input
 					label="Phone"

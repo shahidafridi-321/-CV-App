@@ -50,9 +50,9 @@ export const JobInfo = () => {
 	return (
 		<section
 			id="job-info"
-			className="flex flex-col-reverse md:grid md:grid-cols-4 border border-blue-600 py-4 gap-4 relative"
+			className="flex flex-col-reverse md:grid md:grid-cols-4 py-4 gap-2 relative"
 		>
-			<Form displayForm={displayForm}>
+			<Form displayForm={displayForm} title="Job Information">
 				<Input
 					label="Componey"
 					type="text"

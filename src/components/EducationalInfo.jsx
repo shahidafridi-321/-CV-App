@@ -12,8 +12,8 @@ export const EducationalInfo = () => {
 	});
 
 	const [displayEduInfo, setDisplayEduInfo] = useState({
-		school: "islamia",
-		degree: "BS",
+		school: "Islamia College Peshawar",
+		degree: "Bachlor Studies Of Computer Science",
 		startDate: "01/11/2021",
 		endDate: "01/11/2025",
 	});
@@ -50,7 +50,7 @@ export const EducationalInfo = () => {
 			id="education-info"
 			className="flex flex-col-reverse md:grid md:grid-cols-4 py-4 gap-0 relative"
 		>
-			<Form displayForm={displayForm}>
+			<Form displayForm={displayForm} title="Educational Information">
 				<>
 					<Input
 						label="Institute Name"

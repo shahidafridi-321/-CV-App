@@ -14,7 +14,7 @@ export const Input = ({
 	return (
 		<div>
 			<label>
-				{label} {" "}
+				{label} <br />
 				<input
 					type={type}
 					name={name}

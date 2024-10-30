@@ -11,8 +11,8 @@ export const PersonalInfo = () => {
 	});
 
 	const [displayInfo, setDisplayInfo] = useState({
-		name: "Shahid",
-		number: "03201985766",
+		name: "Shahid Afridi",
+		number: "092555555555",
 		email: "shahidafridi@gmail.com",
 	});
 
@@ -50,6 +50,7 @@ export const PersonalInfo = () => {
 					type="text"
 					onChange={handleChange}
 					className="border-spacing-16"
+					placeholder="eg John"
 				/>
 				<Input
 					label="Phone"
@@ -58,6 +59,7 @@ export const PersonalInfo = () => {
 					value={personalInfo.number}
 					type="number"
 					onChange={handleChange}
+					placeholder="eg 0324xxx21"
 				/>
 				<Input
 					label="Email"
@@ -66,6 +68,7 @@ export const PersonalInfo = () => {
 					value={personalInfo.email}
 					type="email"
 					onChange={handleChange}
+					placeholder="example@gmail.com"
 				/>
 			</Form>
 			<PersonalInfoCard
